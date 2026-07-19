@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Our Scrapbook 💌</title>
+
+<!-- Google Fonts: handwritten + serif combo for the scrapbook feel -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Caveat:wght@500;600;700&family=Patrick+Hand&family=EB+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- Paper grain overlay + ambient floating hearts/petals layer -->
+<div class="grain"></div>
+<div class="spine"></div>
+<div id="ambient-layer"></div>
+
+<!-- ==========================================================
+     COVER / LANDING PAGE
+     ========================================================== -->
+<section id="cover">
+  <div class="cover-card">
+    <div class="cover-tape"></div>
+    <span class="cover-doodle one">✨</span>
+    <span class="cover-doodle two">❄️</span>
+    <span class="cover-doodle three">🤍</span>
+    <span class="cover-doodle four">⭐</span>
+
+    <p class="cover-eyebrow">a little book, made of us</p>
+    <h1 class="cover-title">Our Scrapbook</h1>
+    <p class="cover-sub">
+      Every page here is a piece of my favorite story — ours.
+      Come in, get cozy, and let's flip through it together.
+    </p>
+    <button id="open-btn" class="open-btn">🌷 Open Our Scrapbook</button>
+  </div>
+</section>
+
+<!-- ==========================================================
+     SCRAPBOOK CONTENT (revealed after the cover opens)
+     ========================================================== -->
+<main id="scrapbook">
+
+  <!-- ---------------- OUR STORY ---------------- -->
+  <section class="page" id="story">
+    <div class="section-head reveal">
+      <p class="section-kicker">chapter one</p>
+      <h2 class="section-title">Our Story</h2>
+      <p class="section-note">a little timeline of how we got here</p>
+    </div>
+
+    <div class="timeline">
+      <div class="timeline-item reveal">
+        <span class="sticker" style="top:-14px; right:-10px; --r:-8deg;">⭐</span>
+        <p class="timeline-date">the day we met</p>
+        <h3 class="timeline-title">Hello, Stranger</h3>
+        <p class="timeline-text">I still remember exactly what you were wearing, and exactly how nervous I was to say hi. Funny how one small "hello" quietly became the start of everything.</p>
+      </div>
+
+      <div class="timeline-item reveal">
+        <span class="sticker" style="top:-14px; left:-10px; --r:10deg;">🌼</span>
+        <p class="timeline-date">our first date</p>
+        <h3 class="timeline-title">Butterflies &amp; Bad Jokes</h3>
+        <p class="timeline-text">You laughed at my terrible joke and I decided right then I wanted to make you laugh like that forever.</p>
+      </div>
+
+      <div class="timeline-item reveal">
+        <span class="sticker" style="top:-14px; right:-10px; --r:-6deg;">💌</span>
+        <p class="timeline-date">"i love you," for the first time</p>
+        <h3 class="timeline-title">Three Little Words</h3>
+        <p class="timeline-text">My hands were shaking. Yours were too. And then everything felt so much softer after that.</p>
+      </div>
+
+      <div class="timeline-item reveal">
+        <span class="sticker" style="top:-14px; left:-10px; --r:8deg;">🏡</span>
+        <p class="timeline-date">a home together</p>
+        <h3 class="timeline-title">Building Our Little World</h3>
+        <p class="timeline-text">Somewhere between grocery runs and lazy Sundays, "us" started to feel like home.</p>
+      </div>
+
+      <div class="timeline-item reveal">
+        <span class="sticker" style="top:-14px; right:-10px; --r:-10deg;">💖</span>
+        <p class="timeline-date">today, and every day after</p>
+        <h3 class="timeline-title">Still Choosing You</h3>
+        <p class="timeline-text">Every single day, again and again, I'd still choose you.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="torn-divider"></div>
+
+  <!-- ---------------- PHOTO MEMORIES ---------------- -->
+  <section class="page" id="photos">
+    <div class="section-head reveal">
+      <p class="section-kicker">chapter two</p>
+      <h2 class="section-title">Photo Memories</h2>
+      <p class="section-note">tiny squares of time I never want to forget</p>
+    </div>
+
+    <div class="gallery">
+      <!-- Replace src in each .frame img with your own photo, e.g. images/photos/photo1.jpg -->
+      <figure class="polaroid reveal" style="--rot:-4deg;">
+        <div class="ptape tape"></div>
+        <div class="frame no-image"><img src="images/photos/photo1.jpg" alt="Our first photo together" loading="lazy" onerror="this.remove()"></div>
+        <figcaption class="cap">the very first photo of us 📸</figcaption>
+      </figure>
+
+      <figure class="polaroid reveal" style="--rot:3deg;">
+        <div class="ptape tape sage"></div>
+        <div class="frame no-image"><img src="images/photos/photo2.jpg" alt="A candid laugh" loading="lazy" onerror="this.remove()"></div>
+        <figcaption class="cap">that laugh I fell for 😄</figcaption>
+      </figure>
+
+      <figure class="polaroid reveal" style="--rot:-2deg;">
+        <div class="ptape tape brown"></div>
+        <div class="frame no-image"><img src="images/photos/photo3.jpg" alt="A cozy day in" loading="lazy" onerror="this.remove()"></div>
+        <figcaption class="cap">our favorite kind of Sunday 🫖</figcaption>
+      </figure>
+
+      <figure class="polaroid reveal" style="--rot:5deg;">
+        <div class="ptape tape"></div>
+        <div class="frame no-image"><img src="images/photos/photo4.jpg" alt="A trip together" loading="lazy" onerror="this.remove()"></div>
+        <figcaption class="cap">the trip we still talk about ✈️</figcaption>
+      </figure>
+
+      <figure class="polaroid reveal" style="--rot:-5deg;">
+        <div class="ptape tape sage"></div>
+        <div class="frame no-image"><img src="images/photos/photo5.jpg" alt="A silly moment" loading="lazy" onerror="this.remove()"></div>
+        <figcaption class="cap">being silly, my favorite us 🤍</figcaption>
+      </figure>
+
+      <figure class="polaroid reveal" style="--rot:2deg;">
+        <div class="ptape tape brown"></div>
+        <div class="frame no-image"><img src="images/photos/photo6.jpg" alt="A quiet moment" loading="lazy" onerror="this.remove()"></div>
+        <figcaption class="cap">just us, quietly happy 💛</figcaption>
+      </figure>
+    </div>
+  </section>
+
+  <div class="torn-divider"></div>
+
+  <!-- ---------------- LOVE LETTERS ---------------- -->
+  <section class="page" id="letters">
+    <div class="section-head reveal">
+      <p class="section-kicker">chapter three</p>
+      <h2 class="section-title">Love Letters</h2>
+      <p class="section-note">a few pages I wrote just for you</p>
+    </div>
+
+    <div class="letters-wrap reveal">
+      <div class="letter-book" id="letter-book">
+        <article class="letter-page active" data-page="1">
+          <p class="letter-heading">My Dearest,</p>
+          <p class="letter-body">
+            I wanted to write down what I don't always say out loud — how safe you make
+            me feel, how easily you make me laugh on my worst days, and how grateful I am
+            that out of everyone, I get to love you.
+          </p>
+          <p class="letter-sign">— always yours</p>
+        </article>
+
+        <article class="letter-page" data-page="2">
+          <p class="letter-heading">To My Favorite Person,</p>
+          <p class="letter-body">
+            Some days I catch myself just watching you exist and thinking, how did I get so
+            lucky. You make ordinary Tuesdays feel like something worth remembering.
+          </p>
+          <p class="letter-sign">— with all my heart</p>
+        </article>
+
+        <article class="letter-page" data-page="3">
+          <p class="letter-heading">A Little Reminder,</p>
+          <p class="letter-body">
+            Whatever today brought you, I'm proud of you. I'm grateful for you. And I will
+            always, always be in your corner.
+          </p>
+          <p class="letter-sign">— your biggest fan</p>
+        </article>
+      </div>
+
+      <div class="letter-nav">
+        <button id="letter-prev">⟵ prev</button>
+        <span id="letter-count">1 / 3</span>
+        <button id="letter-next">next ⟶</button>
+      </div>
+    </div>
+  </section>
+
+  <div class="torn-divider"></div>
+
+  <!-- ---------------- REASONS I LOVE YOU ---------------- -->
+  <section class="page" id="reasons">
+    <div class="section-head reveal">
+      <p class="section-kicker">chapter four</p>
+      <h2 class="section-title">Reasons I Love You</h2>
+      <p class="section-note">just a few — the list is really endless</p>
+    </div>
+
+    <div class="notes-board">
+      <div class="sticky-note blush reveal" style="--rot:-6deg;">The way you always remember the little things I mention once.</div>
+      <div class="sticky-note sage reveal" style="--rot:4deg;">You make even the most boring errands feel fun.</div>
+      <div class="sticky-note beige reveal" style="--rot:-3deg;">Your hugs fix approximately 99% of my bad days.</div>
+      <div class="sticky-note cream reveal" style="--rot:7deg;">You believe in me even when I forget to believe in myself.</div>
+      <div class="sticky-note blush reveal" style="--rot:2deg;">Your terrible puns that somehow always make me laugh.</div>
+      <div class="sticky-note sage reveal" style="--rot:-8deg;">How gently you take care of the people you love.</div>
+      <div class="sticky-note beige reveal" style="--rot:5deg;">You make "home" feel like a person instead of a place.</div>
+      <div class="sticky-note cream reveal" style="--rot:-4deg;">You, just being exactly, unapologetically you.</div>
+    </div>
+  </section>
+
+  <div class="torn-divider"></div>
+
+  <!-- ---------------- SPECIAL MOMENTS ---------------- -->
+  <section class="page" id="moments">
+    <div class="section-head reveal">
+      <p class="section-kicker">chapter five</p>
+      <h2 class="section-title">Special Moments</h2>
+      <p class="section-note">hover a card to peek at the memory</p>
+    </div>
+
+    <div class="moments-grid">
+      <div class="moment-card reveal">
+        <div class="moment-inner">
+          <div class="moment-face moment-front">
+            <div class="emoji">🎉</div>
+            <div class="title">The Milestone</div>
+          </div>
+          <div class="moment-face moment-back">Our little "one year" adventure — the one where we got hopelessly lost and laughed the whole time anyway.</div>
+        </div>
+      </div>
+
+      <div class="moment-card reveal">
+        <div class="moment-inner">
+          <div class="moment-face moment-front">
+            <div class="emoji">🌧️</div>
+            <div class="title">The Rainy Day</div>
+          </div>
+          <div class="moment-face moment-back">Getting caught in the rain with no umbrella, and somehow it became one of our favorite memories.</div>
+        </div>
+      </div>
+
+      <div class="moment-card reveal">
+        <div class="moment-inner">
+          <div class="moment-face moment-front">
+            <div class="emoji">🍜</div>
+            <div class="title">Our Inside Joke</div>
+          </div>
+          <div class="moment-face moment-back">The noodle incident. You know exactly what I mean, and you're smiling right now, aren't you?</div>
+        </div>
+      </div>
+
+      <div class="moment-card reveal">
+        <div class="moment-inner">
+          <div class="moment-face moment-front">
+            <div class="emoji">🌅</div>
+            <div class="title">The Sunrise Talk</div>
+          </div>
+          <div class="moment-face moment-back">That one night we stayed up talking until the sky turned pink. I never wanted it to end.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="torn-divider"></div>
+
+  <!-- ---------------- MUSIC CORNER ---------------- -->
+  <section class="page" id="music">
+    <div class="section-head reveal">
+      <p class="section-kicker">chapter six</p>
+      <h2 class="section-title">Music Corner</h2>
+      <p class="section-note">the song that sounds like us</p>
+    </div>
+
+    <div class="music-corner reveal">
+      <div class="player-card">
+        <div class="vinyl" id="vinyl"></div>
+        <div class="player-info">
+          <p class="song">"Our Song" 🎶</p>
+          <p class="artist">— add your favorite artist here</p>
+          <button id="play-btn" class="play-btn">▶ Play</button>
+        </div>
+      </div>
+      <p class="music-hint">
+        Drop your favorite love song into <code>audio/our-song.mp3</code> and press play —
+        this little record will spin for as long as it plays. 🎧
+      </p>
+      <!-- Add your own audio file at audio/our-song.mp3 -->
+      <audio id="our-song" src="audio/our-song.mp3" preload="none" loop></audio>
+    </div>
+  </section>
+
+  <div class="torn-divider"></div>
+
+  <!-- ---------------- COUNTDOWN ---------------- -->
+  <section class="page" id="countdown">
+    <div class="section-head reveal">
+      <p class="section-kicker">chapter seven</p>
+      <h2 class="section-title">Us, In Numbers</h2>
+      <p class="section-note">counting every single day since we began</p>
+    </div>
+
+    <div class="countdown-wrap reveal">
+      <div class="countdown-grid">
+        <div class="count-box"><div class="count-num" id="cd-years">0</div><div class="count-label">years</div></div>
+        <div class="count-box"><div class="count-num" id="cd-months">0</div><div class="count-label">months</div></div>
+        <div class="count-box"><div class="count-num" id="cd-days">0</div><div class="count-label">days</div></div>
+        <div class="count-box"><div class="count-num" id="cd-hours">0</div><div class="count-label">hours</div></div>
+        <div class="count-box"><div class="count-num" id="cd-mins">0</div><div class="count-label">minutes</div></div>
+        <div class="count-box"><div class="count-num" id="cd-secs">0</div><div class="count-label">seconds</div></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="torn-divider"></div>
+
+  <!-- ---------------- FUTURE DREAMS ---------------- -->
+  <section class="page" id="dreams">
+    <div class="section-head reveal">
+      <p class="section-kicker">chapter eight</p>
+      <h2 class="section-title">Future Dreams</h2>
+      <p class="section-note">a little bucket list, just for us</p>
+    </div>
+
+    <div class="dreams-list reveal">
+      <div class="dream-item"><input type="checkbox" id="dream1"><label for="dream1">Watch the sunrise from a mountain together</label></div>
+      <div class="dream-item"><input type="checkbox" id="dream2"><label for="dream2">Take a slow, no-plans road trip</label></div>
+      <div class="dream-item"><input type="checkbox" id="dream3"><label for="dream3">Learn to cook a new cuisine together</label></div>
+      <div class="dream-item"><input type="checkbox" id="dream4"><label for="dream4">Adopt a dog and spoil it endlessly</label></div>
+      <div class="dream-item"><input type="checkbox" id="dream5"><label for="dream5">Build our dream home, even a tiny one</label></div>
+      <div class="dream-item"><input type="checkbox" id="dream6"><label for="dream6">Grow old together, still laughing this hard</label></div>
+    </div>
+  </section>
+
+  <div class="torn-divider"></div>
+
+  <!-- ---------------- FINAL SURPRISE ---------------- -->
+  <section class="page surprise-section" id="surprise">
+    <div class="section-head reveal">
+      <p class="section-kicker">the last page</p>
+      <h2 class="section-title">One Last Thing</h2>
+    </div>
+
+    <p class="surprise-msg reveal">
+      If you've made it all the way here — thank you for flipping through my heart like this.
+      There's one more little secret tucked into this page, just for you.
+    </p>
+    <button id="surprise-btn" class="surprise-btn reveal">💙 Open My Last Surprise</button>
+
+    <div class="hidden-letter" id="hidden-letter">
+      <p>My love,</p>
+      <p>
+        If you're reading this, it means you stayed until the very last page — just like
+        I hope you'll stay through every ordinary day and every hard one too. Thank you for
+        being my favorite person to build a life with. I love you more than this little
+        website could ever hold.
+      </p>
+      <p class="sign">Forever yours 💌</p>
+    </div>
+  </section>
+
+  <footer>
+    made with tape, paper, and a whole lot of love 🤎
+  </footer>
+
+</main>
+
+<script src="script.js"></script>
+</body>
+</html>
