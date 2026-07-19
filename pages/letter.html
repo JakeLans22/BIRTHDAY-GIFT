@@ -1,0 +1,1048 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Birthday Letter 💙</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Playfair+Display:ital,wght@0,500;0,600;1,500&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+/* ============================================================
+   DESIGN TOKENS — soft blue scrapbook palette
+   ============================================================ */
+:root{
+  --ink-blue:      #1E5C8A;   /* deep readable text-blue */
+  --navy:          #1E3A5F;   /* deep navy frame color */
+  --accent-deep:   #5A9BEA;   /* deep accent */
+  --accent-mid:    #8BB8F5;   /* mid accent */
+  --accent-soft:   #BFDFFF;   /* soft blue */
+  --accent-pale:   #DCEEFF;   /* pale blue */
+  --accent-mist:   #EAF6FF;   /* mistiest blue */
+  --cream:         #FFFDF6;   /* warm paper cream */
+  --paper:         #FFFBF2;   /* stationery paper */
+  --white:         #ffffff;
+  --shadow-soft:   rgba(90,155,234,.28);
+  --font-script:   'Great Vibes', cursive;
+  --font-serif:    'Cormorant Garamond', 'Playfair Display', serif;
+  --font-display:  'Playfair Display', serif;
+  --font-ui:       'Poppins', sans-serif;
+}
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html{ scroll-behavior:smooth; }
+
+body{
+  font-family: var(--font-serif);
+  /* checkerboard scrapbook backdrop, soft blue + cream */
+  background-color:var(--cream);
+  background-image:
+    linear-gradient(45deg, var(--accent-soft) 25%, transparent 25%),
+    linear-gradient(-45deg, var(--accent-soft) 25%, transparent 25%),
+    linear-gradient(45deg, transparent 75%, var(--accent-soft) 75%),
+    linear-gradient(-45deg, transparent 75%, var(--accent-soft) 75%);
+  background-size:100px 100px;
+  background-position:0 0, 0 50px, 50px -50px, -50px 0;
+  background-attachment:fixed;
+  min-height:100vh;
+  display:flex;
+  overflow-x:hidden;
+  overflow-y:auto;
+  position:relative;
+  animation: pageFadeIn 1.4s ease both;
+}
+
+/* soft vignette to add depth over the checkerboard */
+.bg-wash{
+  position:fixed;
+  inset:0;
+  background:radial-gradient(ellipse at center, transparent 55%, rgba(30,58,95,.14) 100%);
+  pointer-events:none;
+  z-index:0;
+}
+
+/* ============================================================
+   PRELOADER — gentle entrance before the page reveals itself
+   ============================================================ */
+#preloader{
+  position:fixed;
+  inset:0;
+  z-index:999;
+  background:linear-gradient(135deg,var(--accent-mist),var(--accent-pale));
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  gap:16px;
+  transition:opacity .9s ease, visibility .9s ease;
+}
+#preloader.done{ opacity:0; visibility:hidden; pointer-events:none; }
+.preloader-flower{
+  font-size:34px;
+  color:var(--accent-deep);
+  animation: breathe 1.6s ease-in-out infinite;
+}
+.preloader-text{
+  font-family:var(--font-script);
+  font-size:28px;
+  color:var(--ink-blue);
+  letter-spacing:1px;
+}
+
+@keyframes pageFadeIn{
+  from{ opacity:0; }
+  to{ opacity:1; }
+}
+
+/* ============================================================
+   AMBIENT BACKGROUND LAYERS — bokeh / rays / petals / sparkles
+   ============================================================ */
+.bg-decor{
+  position:fixed;
+  inset:0;
+  overflow:hidden;
+  pointer-events:none;
+  z-index:1;
+}
+
+.ray{
+  position:absolute;
+  top:-10%;
+  width:140px;
+  height:140%;
+  background:linear-gradient(180deg, rgba(255,255,255,.35), transparent 70%);
+  transform:rotate(12deg);
+  filter:blur(6px);
+  animation: raysDrift 14s ease-in-out infinite;
+  opacity:.5;
+}
+.ray:nth-child(1){ left:10%; animation-delay:0s; }
+.ray:nth-child(2){ left:55%; width:100px; animation-delay:4s; opacity:.35; }
+.ray:nth-child(3){ left:80%; width:80px; animation-delay:8s; opacity:.3; }
+
+@keyframes raysDrift{
+  0%,100%{ transform:translateX(0) rotate(12deg); }
+  50%{ transform:translateX(40px) rotate(9deg); }
+}
+
+.bokeh{
+  position:absolute;
+  border-radius:50%;
+  background:radial-gradient(circle at 35% 30%, rgba(255,255,255,.85), rgba(139,184,245,.15) 70%, transparent 75%);
+  animation: bokehDrift linear infinite;
+  opacity:.55;
+}
+
+@keyframes bokehDrift{
+  0%{ transform:translate(0,0) scale(1); opacity:.15; }
+  50%{ opacity:.6; }
+  100%{ transform:translate(30px,-60vh) scale(1.15); opacity:0; }
+}
+
+.sparkle{
+  position:absolute;
+  color:var(--accent-deep);
+  font-size:14px;
+  animation: twinkle 3s ease-in-out infinite;
+  opacity:0;
+}
+
+@keyframes twinkle{
+  0%,100%{ opacity:0; transform:scale(.4) rotate(0deg); }
+  50%{ opacity:1; transform:scale(1) rotate(90deg); }
+}
+
+.petal{
+  position:absolute;
+  top:-5vh;
+  font-size:16px;
+  color:var(--accent-mid);
+  animation: petalFall linear infinite;
+  opacity:.8;
+}
+
+@keyframes petalFall{
+  0%{ transform:translateY(0) translateX(0) rotate(0deg); opacity:0; }
+  10%{ opacity:.85; }
+  100%{ transform:translateY(110vh) translateX(40px) rotate(260deg); opacity:0; }
+}
+
+/* Floating Hearts (original feature — kept, with a gentle pulse added) */
+.heart{
+  position:absolute;
+  color:var(--accent-deep);
+  opacity:.5;
+  animation: float 8s linear infinite, heartPulse 2.4s ease-in-out infinite;
+  z-index:1;
+  pointer-events:none;
+}
+
+@keyframes float{
+  0%{ transform:translateY(100vh); opacity:0; }
+  20%{ opacity:1; }
+  100%{ transform:translateY(-120vh); opacity:0; }
+}
+
+@keyframes heartPulse{
+  0%,100%{ transform:scale(1); }
+  50%{ transform:scale(1.18); }
+}
+
+/* ============================================================
+   HOME BUTTON
+   ============================================================ */
+.back{
+  position:fixed;
+  top:20px;
+  left:20px;
+  background:linear-gradient(135deg,var(--accent-deep),var(--ink-blue));
+  color:white;
+  padding:12px 26px;
+  border-radius:30px;
+  text-decoration:none;
+  font-family:var(--font-ui);
+  font-weight:500;
+  font-size:14px;
+  letter-spacing:.3px;
+  box-shadow:0 8px 20px var(--shadow-soft);
+  transition:transform .35s ease, box-shadow .35s ease;
+  z-index:50;
+}
+.back:hover{
+  transform:translateY(-3px) scale(1.04);
+  box-shadow:0 12px 26px var(--shadow-soft);
+}
+
+/* ============================================================
+   SCRAPBOOK DECORATIONS — scattered around the page
+   ============================================================ */
+.decor{
+  position:fixed;
+  pointer-events:none;
+  z-index:2;
+}
+
+/* washi tape strips */
+.washi{
+  width:90px;
+  height:26px;
+  opacity:.85;
+  box-shadow:0 3px 8px rgba(90,155,234,.2);
+}
+.washi.striped{
+  background:repeating-linear-gradient(45deg,var(--accent-mid) 0 8px, var(--accent-pale) 8px 16px);
+}
+.washi.dotted{
+  background-color:var(--accent-pale);
+  background-image:radial-gradient(var(--accent-deep) 2px, transparent 2.5px);
+  background-size:12px 12px;
+}
+.washi::after{
+  content:"";
+  position:absolute; inset:0;
+  background:linear-gradient(180deg, rgba(255,255,255,.5), transparent);
+}
+
+/* paper clip (SVG based, drawn inline in markup) */
+.paperclip{ filter: drop-shadow(0 3px 5px rgba(90,110,140,.35)); }
+
+/* pressed flowers, leaves, butterflies — gentle breathing / fluttering */
+.pressed-flower{ animation: breathe 5s ease-in-out infinite; }
+.leaf{ animation: breathe 6s ease-in-out infinite; }
+.butterfly{ animation: flutter 3.2s ease-in-out infinite, driftSideways 9s ease-in-out infinite; transform-origin:center; }
+.doodle-star{ animation: twinkle 4s ease-in-out infinite; }
+
+@keyframes breathe{
+  0%,100%{ transform:scale(1) rotate(var(--r,0deg)); }
+  50%{ transform:scale(1.06) rotate(var(--r,0deg)); }
+}
+@keyframes flutter{
+  0%,100%{ transform:scaleX(1) rotate(var(--r,0deg)); }
+  50%{ transform:scaleX(.78) rotate(var(--r,0deg)); }
+}
+@keyframes driftSideways{
+  0%,100%{ margin-left:0; margin-top:0; }
+  50%{ margin-left:14px; margin-top:-10px; }
+}
+
+/* ink stamp / vintage postal mark */
+.stamp{
+  width:92px; height:92px;
+  border:2px dashed rgba(90,155,234,.55);
+  border-radius:50%;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:rgba(30,92,138,.55);
+  font-family:var(--font-ui);
+  font-size:10px;
+  letter-spacing:2px;
+  text-align:center;
+  transform:rotate(-14deg);
+  opacity:.7;
+}
+
+/* notebook paper scrap tucked behind the letter */
+.notebook-scrap{
+  width:170px;
+  height:130px;
+  background:
+    repeating-linear-gradient(var(--cream) 0 27px, rgba(139,184,245,.35) 27px 28px);
+  border:1px solid rgba(139,184,245,.4);
+  box-shadow:0 10px 24px rgba(90,110,140,.2);
+  border-radius:2px;
+}
+
+/* responsive visibility: keep things uncluttered on small screens */
+@media (max-width: 720px){
+  .decor.hide-mobile{ display:none; }
+}
+
+/* ============================================================
+   STAGE — envelope and reveal-stage overlap in the same spot,
+   but stay in normal document flow so tall content (once the
+   envelope is opened) is fully scrollable instead of clipped
+   ============================================================ */
+.stage{
+  position:relative;
+  display:grid;
+  align-items:start;
+  justify-items:center;
+  width:100%;
+  margin:auto;
+  padding:60px 16px;
+}
+.stage > *{
+  grid-area:1 / 1;
+}
+
+/* ============================================================
+   ENVELOPE
+   ============================================================ */
+.envelope-wrap{
+  position:relative;
+  z-index:5;
+  animation: floatEnvelope 5s ease-in-out infinite;
+}
+.envelope-wrap.opened{ animation:none; }
+
+.envelope{
+  width:340px;
+  height:230px;
+  background:
+    repeating-linear-gradient(115deg, rgba(139,184,245,.05) 0 2px, transparent 2px 6px),
+    linear-gradient(160deg, var(--paper), var(--cream));
+  position:relative;
+  cursor:pointer;
+  box-shadow:
+    0 25px 45px rgba(90,110,140,.28),
+    0 4px 10px rgba(90,110,140,.18) inset;
+  border-radius:8px;
+  transition:.5s;
+}
+.envelope::before{ /* subtle paper grain */
+  content:"";
+  position:absolute; inset:0;
+  border-radius:8px;
+  background-image:
+    radial-gradient(rgba(90,155,234,.05) 1px, transparent 1px);
+  background-size:6px 6px;
+  pointer-events:none;
+}
+
+.flap{
+  position:absolute;
+  top:0; left:0;
+  width:100%;
+  height:100%;
+  background:linear-gradient(135deg,var(--accent-pale),var(--accent-mist));
+  clip-path:polygon(0 0,100% 0,50% 55%);
+  transform-origin:top;
+  transition:.8s;
+  z-index:2;
+  box-shadow:0 6px 14px rgba(90,110,140,.15) inset;
+}
+
+/* ribbon crossing the envelope */
+.ribbon{
+  position:absolute;
+  z-index:3;
+  background:linear-gradient(180deg,var(--accent-deep),var(--accent-mid));
+  box-shadow:0 2px 6px rgba(30,92,138,.3);
+}
+.ribbon.vertical{
+  width:18px; height:100%;
+  left:50%; top:0;
+  transform:translateX(-50%);
+}
+.ribbon.horizontal{
+  height:18px; width:100%;
+  top:62%; left:0;
+}
+.ribbon-bow{
+  position:absolute;
+  left:50%; top:62%;
+  transform:translate(-50%,-50%);
+  z-index:4;
+  filter:drop-shadow(0 3px 6px rgba(30,92,138,.35));
+}
+
+/* wax seal */
+.wax-seal{
+  position:absolute;
+  left:50%; top:62%;
+  transform:translate(-50%,-50%);
+  width:46px; height:46px;
+  border-radius:50%;
+  background:radial-gradient(circle at 35% 30%, var(--accent-mid), var(--ink-blue) 75%);
+  box-shadow:0 4px 10px rgba(30,92,138,.45), inset 0 2px 4px rgba(255,255,255,.35);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  color:var(--accent-mist);
+  font-family:var(--font-script);
+  font-size:22px;
+  z-index:6;
+  transition:transform .6s ease, opacity .6s ease;
+}
+
+.sparkle-burst{
+  position:absolute;
+  color:var(--accent-deep);
+  font-size:18px;
+  pointer-events:none;
+  animation: sparklePop .9s ease-out forwards;
+  z-index:20;
+}
+@keyframes sparklePop{
+  0%{ transform:translate(0,0) scale(0); opacity:1; }
+  70%{ opacity:1; }
+  100%{ transform:translate(var(--dx), var(--dy)) scale(1.3); opacity:0; }
+}
+
+.text{
+  position:absolute;
+  bottom:20px;
+  width:100%;
+  text-align:center;
+  font-family:var(--font-ui);
+  font-weight:500;
+  letter-spacing:.4px;
+  color:var(--ink-blue);
+  z-index:3;
+}
+
+/* ============================================================
+   REVEAL STAGE — photo on top, note pinned below (stacked)
+   ============================================================ */
+.reveal-stage{
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  gap:38px;
+  z-index:9;
+  max-width:94vw;
+  pointer-events:none; /* let clicks pass through to the envelope beneath until revealed */
+}
+
+.scrap-block{
+  position:relative;
+  display:flex;
+  justify-content:center;
+}
+
+/* ============================================================
+   PHOTO FRAME — navy scrapbook frame, pinned + banner + balloons
+   ============================================================ */
+.photo-frame{
+  position:relative;
+  width:230px;
+  background:var(--paper);
+  border:10px solid var(--navy);
+  padding:12px;
+  border-radius:4px;
+  box-shadow:0 25px 55px rgba(30,58,95,.35);
+  opacity:0;
+  visibility:hidden;
+  transform:scale(.5) rotate(-6deg);
+  transition:1.1s cubic-bezier(.2,.9,.3,1.15);
+}
+.photo-frame.show{
+  opacity:1;
+  visibility:visible;
+  transform:scale(1) rotate(-4deg);
+  animation: paperUnfold 1.1s cubic-bezier(.2,.9,.3,1.15);
+}
+.photo-frame img{
+  width:100%;
+  height:230px;
+  object-fit:cover;
+  display:block;
+  filter:saturate(.95) contrast(1.03);
+}
+
+/* decorations only fade in once the photo above them gets its 'show' class —
+   pure CSS, no extra JS required */
+.photo-frame ~ .scrap-decor{
+  opacity:0;
+  transition:opacity 1s ease .3s, transform 1s ease .3s;
+}
+.photo-frame.show ~ .scrap-decor{
+  opacity:1;
+}
+
+.safety-pin{
+  position:absolute;
+  top:-20px;
+  left:50%;
+  transform:translateX(-50%) rotate(-8deg) scale(.9);
+  filter:drop-shadow(0 3px 4px rgba(30,58,95,.35));
+  z-index:12;
+}
+.frame-greeting{
+  position:absolute;
+  top:-6px;
+  left:100%;
+  margin-left:16px;
+  width:160px;
+  font-family:var(--font-script);
+  font-size:26px;
+  line-height:1.15;
+  color:var(--navy);
+  transform:rotate(-3deg);
+}
+.bunting{
+  position:absolute;
+  bottom:-22px;
+  left:50%;
+  transform:translateX(-50%) rotate(2deg);
+}
+.balloon-cluster{
+  position:absolute;
+  top:-58px;
+  left:-72px;
+  width:90px;
+  animation: breathe 5s ease-in-out infinite;
+}
+.cake-slice{
+  position:absolute;
+  bottom:-18px;
+  right:-58px;
+  width:52px;
+  animation: breathe 6s ease-in-out infinite;
+}
+.wish-text{
+  position:absolute;
+  bottom:-46px;
+  left:-96px;
+  font-family:var(--font-script);
+  font-size:19px;
+  color:var(--accent-deep);
+  transform:rotate(-6deg);
+}
+
+@media (max-width:640px){
+  .frame-greeting{ position:static; margin:10px auto 0; text-align:center; transform:none; }
+  .balloon-cluster{ display:none; }
+  .wish-text{ display:none; }
+}
+
+/* ============================================================
+   LETTER (note card) — navy-framed, pinned at the top
+   ============================================================ */
+.letter{
+  position:relative;
+  transform:scale(.5) rotate(2deg);
+  width:640px;
+  max-width:90%;
+  background:linear-gradient(180deg, var(--paper), var(--cream));
+  border:8px solid var(--navy);
+  padding:50px 46px 40px;
+  border-radius:4px;
+  box-shadow:0 30px 70px rgba(30,58,95,.32);
+  opacity:0;
+  visibility:hidden;
+  transition:1.1s cubic-bezier(.2,.9,.3,1.15);
+  line-height:1.85;
+  z-index:10;
+}
+.letter::before,
+.letter::after{ /* deckled / torn paper edge, peeking out from behind the navy frame */
+  content:"";
+  position:absolute;
+  left:8px; right:8px;
+  height:12px;
+  background:
+    linear-gradient(135deg, transparent 50%, var(--paper) 50%) 0 0/16px 16px repeat-x,
+    linear-gradient(-135deg, transparent 50%, var(--paper) 50%) 8px 0/16px 16px repeat-x;
+}
+.letter::before{ top:-6px; }
+.letter::after{ bottom:-6px; transform:rotate(180deg); }
+
+.letter.show{
+  opacity:1;
+  visibility:visible;
+  transform:scale(1) rotate(1deg);
+  animation: paperUnfold 1.1s cubic-bezier(.2,.9,.3,1.15);
+}
+.letter.hide{
+  opacity:0;
+  transform:scale(.7);
+  pointer-events:none;
+}
+
+.letter ~ .scrap-decor{
+  opacity:0;
+  transition:opacity 1s ease .3s, transform 1s ease .3s;
+}
+.letter.show ~ .scrap-decor{
+  opacity:1;
+}
+
+.gift-box{
+  position:absolute;
+  top:50%;
+  left:100%;
+  margin-left:20px;
+  transform:translateY(-50%) rotate(-6deg);
+  width:56px;
+  animation: breathe 5.5s ease-in-out infinite;
+}
+
+@media (max-width:640px){
+  .gift-box{ display:none; }
+}
+
+@keyframes paperUnfold{
+  0%{ filter:blur(4px); }
+  60%{ filter:blur(0); }
+  100%{ filter:blur(0); }
+}
+
+.letter-border{ /* elegant inner frame */
+  position:absolute;
+  inset:14px;
+  border:1px solid rgba(139,184,245,.55);
+  border-radius:2px;
+  pointer-events:none;
+}
+.letter-border::before{
+  content:"";
+  position:absolute;
+  inset:5px;
+  border:1px solid rgba(139,184,245,.28);
+}
+
+.letter h1{
+  font-family:var(--font-script);
+  font-size:48px;
+  color:var(--navy);
+  text-align:center;
+  margin-bottom:22px;
+  text-shadow:0 2px 10px rgba(139,184,245,.35);
+}
+
+.letter p{
+  font-family:var(--font-serif);
+  font-size:19px;
+  font-weight:400;
+  color:var(--ink-blue);
+  white-space:pre-line;
+  min-height:1.5em;
+}
+
+.signature{
+  margin-top:32px;
+  text-align:right;
+  font-family:var(--font-script);
+  font-size:38px;
+  color:var(--navy);
+}
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@keyframes floatEnvelope{
+  0%,100%{ transform:translateY(0); }
+  50%{ transform:translateY(-10px); }
+}
+
+@media (max-width:768px){
+  .envelope{ width:280px; height:190px; }
+  .letter{ padding:40px 26px 32px; }
+  .letter h1{ font-size:44px; }
+  .letter p{ font-size:16px; }
+  .signature{ font-size:32px; }
+}
+
+@media (max-width:480px){
+  .envelope{ width:250px; height:170px; }
+  .wax-seal{ width:38px; height:38px; font-size:18px; }
+  .letter{ padding:32px 18px 26px; }
+  .letter h1{ font-size:36px; margin-bottom:18px; }
+  .letter p{ font-size:15px; }
+  .signature{ font-size:28px; margin-top:24px; }
+  .stamp, .notebook-scrap{ display:none; }
+}
+
+@media (prefers-reduced-motion: reduce){
+  *{ animation-duration:.001ms !important; animation-iteration-count:1 !important; transition-duration:.001ms !important; }
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- soft blue color wash over the background photo -->
+<div class="bg-wash"></div>
+
+<!-- gentle preloader entrance -->
+<div id="preloader">
+  <div class="preloader-flower">❀</div>
+  <div class="preloader-text">preparing something for you…</div>
+</div>
+
+<!-- ambient background: light rays + bokeh + sparkles + petals injected by JS -->
+<div class="bg-decor" id="bgDecor">
+  <div class="ray"></div>
+  <div class="ray"></div>
+  <div class="ray"></div>
+</div>
+
+<a href="../index.html" class="back">← Home</a>
+
+<!-- ============ SCRAPBOOK DECORATIONS SCATTERED AROUND THE PAGE ============ -->
+
+<!-- washi tape strips -->
+<div class="decor washi striped" style="top:8%; left:6%; transform:rotate(-8deg);"></div>
+<div class="decor washi dotted hide-mobile" style="bottom:10%; right:8%; transform:rotate(10deg);"></div>
+
+<!-- paper clip -->
+<svg class="decor paperclip hide-mobile" style="top:14%; right:12%; width:34px; height:60px; transform:rotate(18deg);" viewBox="0 0 34 60" fill="none">
+  <path d="M9 12 V44 a8 8 0 0 0 16 0 V10 a5 5 0 0 0-10 0 V40" stroke="#8BB8F5" stroke-width="4" stroke-linecap="round"/>
+</svg>
+
+<!-- pressed forget-me-not flowers -->
+<svg class="decor pressed-flower" style="top:20%; left:4%; width:46px; height:46px; --r:-6deg;" viewBox="0 0 46 46">
+  <g fill="#8BB8F5">
+    <circle cx="23" cy="10" r="6"/><circle cx="34" cy="18" r="6"/>
+    <circle cx="30" cy="31" r="6"/><circle cx="16" cy="31" r="6"/><circle cx="12" cy="18" r="6"/>
+  </g>
+  <circle cx="23" cy="20" r="6" fill="#FFF6DC"/>
+</svg>
+
+<svg class="decor pressed-flower hide-mobile" style="bottom:18%; left:10%; width:38px; height:38px; --r:10deg;" viewBox="0 0 46 46">
+  <g fill="#5A9BEA">
+    <circle cx="23" cy="10" r="6"/><circle cx="34" cy="18" r="6"/>
+    <circle cx="30" cy="31" r="6"/><circle cx="16" cy="31" r="6"/><circle cx="12" cy="18" r="6"/>
+  </g>
+  <circle cx="23" cy="20" r="6" fill="#FFF6DC"/>
+</svg>
+
+<!-- baby's breath cluster -->
+<svg class="decor hide-mobile" style="top:36%; left:3%; width:60px; height:60px; opacity:.8;" viewBox="0 0 60 60">
+  <g fill="#ffffff" stroke="#BFDFFF" stroke-width="1">
+    <circle cx="10" cy="14" r="3.4"/><circle cx="22" cy="8" r="3"/><circle cx="30" cy="20" r="3.6"/>
+    <circle cx="16" cy="26" r="3"/><circle cx="38" cy="10" r="2.6"/><circle cx="44" cy="24" r="3"/>
+  </g>
+</svg>
+
+<!-- dried leaves -->
+<svg class="decor leaf" style="top:6%; right:20%; width:36px; height:36px; --r:20deg;" viewBox="0 0 36 36">
+  <path d="M18 2 C30 8 30 28 18 34 C6 28 6 8 18 2 Z" fill="#7FA8D9"/>
+  <line x1="18" y1="2" x2="18" y2="34" stroke="#4d7ab0" stroke-width="1"/>
+</svg>
+<svg class="decor leaf hide-mobile" style="bottom:6%; left:22%; width:30px; height:30px; --r:-25deg;" viewBox="0 0 36 36">
+  <path d="M18 2 C30 8 30 28 18 34 C6 28 6 8 18 2 Z" fill="#a9c8ec"/>
+  <line x1="18" y1="2" x2="18" y2="34" stroke="#5A9BEA" stroke-width="1"/>
+</svg>
+
+<!-- butterflies -->
+<svg class="decor butterfly" style="top:26%; right:6%; width:40px; height:32px; --r:0deg;" viewBox="0 0 40 32">
+  <g fill="#5A9BEA" opacity=".85">
+    <ellipse cx="12" cy="10" rx="10" ry="8"/>
+    <ellipse cx="12" cy="22" rx="7" ry="6"/>
+    <ellipse cx="28" cy="10" rx="10" ry="8"/>
+    <ellipse cx="28" cy="22" rx="7" ry="6"/>
+  </g>
+  <line x1="20" y1="4" x2="20" y2="28" stroke="#1E5C8A" stroke-width="2"/>
+</svg>
+<svg class="decor butterfly hide-mobile" style="bottom:30%; right:16%; width:28px; height:22px; --r:12deg;" viewBox="0 0 40 32">
+  <g fill="#8BB8F5" opacity=".85">
+    <ellipse cx="12" cy="10" rx="10" ry="8"/>
+    <ellipse cx="12" cy="22" rx="7" ry="6"/>
+    <ellipse cx="28" cy="10" rx="10" ry="8"/>
+    <ellipse cx="28" cy="22" rx="7" ry="6"/>
+  </g>
+  <line x1="20" y1="4" x2="20" y2="28" stroke="#1E5C8A" stroke-width="2"/>
+</svg>
+
+<!-- doodle stars -->
+<div class="decor doodle-star" style="top:12%; left:38%; color:#8BB8F5; font-size:20px;">✦</div>
+<div class="decor doodle-star hide-mobile" style="bottom:14%; right:36%; color:#5A9BEA; font-size:16px;">✧</div>
+
+<!-- ink stamp / vintage postal mark -->
+<div class="decor stamp hide-mobile" style="top:8%; right:6%;">WITH&nbsp;LOVE<br>· EST. TODAY ·</div>
+
+<!-- notebook paper scrap tucked behind the letter -->
+<div class="decor notebook-scrap" style="top:50%; left:50%; transform:translate(-50%,-50%) rotate(6deg); z-index:4;"></div>
+
+<!-- ============ ENVELOPE + REVEAL, STACKED IN THE SAME SPOT ============ -->
+<div class="stage">
+
+<!-- ============ ENVELOPE ============ -->
+<div class="envelope-wrap" id="envelopeWrap">
+  <div class="envelope" id="envelope">
+    <div class="flap" id="flap"></div>
+
+    <div class="ribbon vertical"></div>
+    <div class="ribbon horizontal"></div>
+    <svg class="ribbon-bow" width="46" height="26" viewBox="0 0 46 26">
+      <path d="M23 13 C15 2 2 4 2 13 C2 22 15 24 23 13 Z" fill="#5A9BEA"/>
+      <path d="M23 13 C31 2 44 4 44 13 C44 22 31 24 23 13 Z" fill="#8BB8F5"/>
+      <circle cx="23" cy="13" r="4" fill="#1E5C8A"/>
+    </svg>
+    <div class="wax-seal" id="waxSeal">✦</div>
+
+    <div class="text">Click to Open Your Letter</div>
+  </div>
+</div>
+
+<!-- ============ PHOTO + LETTER, REVEALED TOGETHER ============ -->
+<div class="reveal-stage" id="revealStage">
+
+  <!-- his picture, pinned into a navy scrapbook frame -->
+  <div class="scrap-block">
+    <div class="photo-frame" id="photoFrame">
+      <img src="../images/him.jpg" alt="A photo of him">
+    </div>
+
+    <!-- everything below fades in automatically once the photo above gets its 'show' class -->
+    <svg class="scrap-decor safety-pin" width="60" height="30" viewBox="0 0 60 30" fill="none">
+      <path d="M6 22 C6 6 28 6 28 17 L54 6" stroke="#C7D3E3" stroke-width="3.5" stroke-linecap="round"/>
+      <path d="M6 22 L54 6" stroke="#C7D3E3" stroke-width="3.5" stroke-linecap="round"/>
+      <circle cx="54" cy="6" r="4.5" fill="#C7D3E3"/>
+    </svg>
+
+    <div class="scrap-decor frame-greeting">happy birthday!<br>my baby!</div>
+
+    <svg class="scrap-decor bunting" width="180" height="34" viewBox="0 0 180 34">
+      <line x1="0" y1="0" x2="180" y2="0" stroke="#1E3A5F" stroke-width="2"/>
+      <polygon points="6,2 26,2 16,28" fill="#5A9BEA"/>
+      <polygon points="32,2 52,2 42,28" fill="#BFDFFF"/>
+      <polygon points="58,2 78,2 68,28" fill="#8BB8F5"/>
+      <polygon points="84,2 104,2 94,28" fill="#DCEEFF"/>
+      <polygon points="110,2 130,2 120,28" fill="#5A9BEA"/>
+      <polygon points="136,2 156,2 146,28" fill="#8BB8F5"/>
+    </svg>
+
+    <svg class="scrap-decor balloon-cluster" viewBox="0 0 100 140">
+      <path d="M20 54 Q13 92 25 132" stroke="#8BB8F5" stroke-width="1.5" fill="none"/>
+      <path d="M50 46 Q43 90 55 132" stroke="#5A9BEA" stroke-width="1.5" fill="none"/>
+      <path d="M80 56 Q73 92 85 132" stroke="#1E3A5F" stroke-width="1.5" fill="none"/>
+      <ellipse cx="20" cy="30" rx="18" ry="24" fill="#BFDFFF"/>
+      <ellipse cx="50" cy="20" rx="20" ry="26" fill="#8BB8F5"/>
+      <ellipse cx="80" cy="34" rx="16" ry="22" fill="#5A9BEA"/>
+    </svg>
+
+    <svg class="scrap-decor cake-slice" viewBox="0 0 60 50">
+      <path d="M5 45 L30 12 L55 45 Z" fill="#FFFDF6" stroke="#8BB8F5" stroke-width="2"/>
+      <path d="M12 45 L30 22 L48 45 Z" fill="#BFDFFF"/>
+      <line x1="30" y1="12" x2="30" y2="3" stroke="#5A9BEA" stroke-width="2"/>
+      <ellipse cx="30" cy="1" rx="3" ry="4" fill="#FFD27A"/>
+    </svg>
+
+    <div class="scrap-decor wish-text">make a wish..</div>
+  </div>
+
+  <!-- the letter, pinned like a note card -->
+  <div class="scrap-block">
+    <div class="letter" id="letter">
+      <div class="letter-border"></div>
+
+      <h1>Happy Birthday</h1>
+      <p id="message"></p>
+
+      <div class="signature">
+        Love Always,<br>
+        Jake
+      </div>
+    </div>
+
+    <svg class="scrap-decor safety-pin" width="60" height="30" viewBox="0 0 60 30" fill="none" style="top:-16px;">
+      <path d="M6 22 C6 6 28 6 28 17 L54 6" stroke="#C7D3E3" stroke-width="3.5" stroke-linecap="round"/>
+      <path d="M6 22 L54 6" stroke="#C7D3E3" stroke-width="3.5" stroke-linecap="round"/>
+      <circle cx="54" cy="6" r="4.5" fill="#C7D3E3"/>
+    </svg>
+
+    <svg class="scrap-decor gift-box" viewBox="0 0 60 60">
+      <rect x="8" y="24" width="44" height="30" fill="#8BB8F5"/>
+      <rect x="8" y="24" width="44" height="8" fill="#5A9BEA"/>
+      <rect x="26" y="24" width="8" height="30" fill="#FFFDF6"/>
+      <path d="M30 24 C20 8 8 18 22 24 Z" fill="#5A9BEA"/>
+      <path d="M30 24 C40 8 52 18 38 24 Z" fill="#5A9BEA"/>
+    </svg>
+  </div>
+
+</div>
+
+</div><!-- /.stage -->
+
+<script>
+
+/* ============================================================
+   PRELOADER — fade out once everything has settled in
+   ============================================================ */
+window.addEventListener("load", () => {
+  setTimeout(() => {
+    document.getElementById("preloader").classList.add("done");
+  }, 700);
+});
+
+/* ============================================================
+   FLOATING HEARTS  (original feature, untouched logic)
+   ============================================================ */
+for(let i=0;i<30;i++){
+  let h=document.createElement("div");
+  h.className="heart";
+  h.innerHTML="❤";
+  h.style.left=Math.random()*100+"vw";
+  h.style.fontSize=(15+Math.random()*20)+"px";
+  h.style.animationDuration=(5+Math.random()*8)+"s";
+  h.style.animationDelay=Math.random()*5+"s";
+  document.body.appendChild(h);
+}
+
+/* ============================================================
+   AMBIENT DECORATION — bokeh circles, sparkles, falling petals
+   (purely additive, does not touch envelope/letter logic)
+   ============================================================ */
+const bgDecor = document.getElementById("bgDecor");
+
+/* soft glowing bokeh circles */
+for(let i=0;i<12;i++){
+  let b=document.createElement("div");
+  b.className="bokeh";
+  let size = 20 + Math.random()*60;
+  b.style.width=size+"px";
+  b.style.height=size+"px";
+  b.style.left=Math.random()*100+"vw";
+  b.style.top=Math.random()*100+"vh";
+  b.style.animationDuration=(10+Math.random()*14)+"s";
+  b.style.animationDelay=(Math.random()*8)+"s";
+  bgDecor.appendChild(b);
+}
+
+/* tiny twinkling sparkles */
+for(let i=0;i<18;i++){
+  let s=document.createElement("div");
+  s.className="sparkle";
+  s.innerHTML="✦";
+  s.style.left=Math.random()*100+"vw";
+  s.style.top=Math.random()*100+"vh";
+  s.style.animationDelay=(Math.random()*4)+"s";
+  bgDecor.appendChild(s);
+}
+
+/* gently falling flower petals */
+const petalChars=["❀","✿","❁"];
+for(let i=0;i<10;i++){
+  let p=document.createElement("div");
+  p.className="petal";
+  p.innerHTML=petalChars[Math.floor(Math.random()*petalChars.length)];
+  p.style.left=Math.random()*100+"vw";
+  p.style.animationDuration=(9+Math.random()*10)+"s";
+  p.style.animationDelay=(Math.random()*10)+"s";
+  bgDecor.appendChild(p);
+}
+
+/* burst of sparkles at a given point — used when the envelope opens */
+function createSparkleBurst(x, y, count=14){
+  for(let i=0;i<count;i++){
+    let s=document.createElement("div");
+    s.className="sparkle-burst";
+    s.innerHTML = Math.random() > .5 ? "✦" : "❀";
+    s.style.left = x+"px";
+    s.style.top = y+"px";
+    const angle = Math.random()*Math.PI*2;
+    const dist = 40 + Math.random()*80;
+    s.style.setProperty("--dx", Math.cos(angle)*dist+"px");
+    s.style.setProperty("--dy", Math.sin(angle)*dist+"px");
+    s.style.fontSize=(12+Math.random()*10)+"px";
+    document.body.appendChild(s);
+    setTimeout(()=> s.remove(), 900);
+  }
+}
+
+/* ============================================================
+   LETTER CONTENT — unchanged from the original
+   ============================================================ */
+const text=`Happy Birthday, My Love 
+
+Today is your special day, and I hope you know just how deeply you are loved.
+
+Thank you for being my safe place, my happiness, and the person who makes ordinary days feel extraordinary.
+
+Every laugh, every memory, every moment we've shared has become one of my greatest treasures.
+
+No matter where life takes us, I promise to continue choosing you, supporting you, and loving you with all my heart.
+
+I hope this little website reminds you of how special you are to me.
+
+May this year bring you happiness, success, good health, and all the dreams your heart desires.
+
+Happy Birthday, my prince.
+
+I love you more than words could ever express. `;
+
+const message=document.getElementById("message");
+const envelopeWrap=document.getElementById("envelopeWrap");
+const envelope=document.getElementById("envelope");
+const flap=document.getElementById("flap");
+const letter=document.getElementById("letter");
+const photoFrame=document.getElementById("photoFrame");
+
+/* ============================================================
+   ENVELOPE OPEN INTERACTION — original logic preserved,
+   with a sparkle burst layered on top for extra delight
+   ============================================================ */
+envelope.onclick=()=>{
+
+  flap.style.transform="rotateX(180deg)";
+  envelope.classList.add("hide");
+  envelopeWrap.classList.add("opened");
+
+  // sparkle burst centered on the envelope
+  const rect = envelope.getBoundingClientRect();
+  createSparkleBurst(rect.left+rect.width/2, rect.top+rect.height/2, 18);
+
+  setTimeout(()=>{
+    letter.classList.add("show");
+    photoFrame.classList.add("show");
+    typeWriter();
+  },700);
+}
+
+let i=0;
+function typeWriter(){
+  if(i<text.length){
+    message.innerHTML+=text.charAt(i);
+    i++;
+    setTimeout(typeWriter,25);
+  }
+}
+
+</script>
+
+</body>
+</html>
