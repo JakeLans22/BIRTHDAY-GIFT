@@ -6,13 +6,14 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Happy Birthday </title>
+<title>Happy Birthday</title>
 
 <link rel="stylesheet" href="css/style.css">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Caveat:wght@500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
 </head>
 
@@ -20,67 +21,86 @@
 
 <div class="background-hearts"></div>
 
+<!-- vintage postage stamp -->
+<div class="vintage-stamp">
+  <span>WITH LOVE</span>
+  <div class="stamp-icon">🌷</div>
+</div>
+
 <div class="container">
 
-<h1>Happy Birthday</h1>
+  <!-- decorative floral corners -->
+  <svg class="corner-flourish corner-tl" viewBox="0 0 120 120"><use href="#flourish"/></svg>
+  <svg class="corner-flourish corner-tr" viewBox="0 0 120 120"><use href="#flourish"/></svg>
+  <svg class="corner-flourish corner-bl" viewBox="0 0 120 120"><use href="#flourish"/></svg>
+  <svg class="corner-flourish corner-br" viewBox="0 0 120 120"><use href="#flourish"/></svg>
 
-<h2>My Love Vi</h2>
+  <!-- paperclip -->
+  <div class="paperclip"></div>
 
-<p class="subtitle">
+  <h1>Happy Birthday</h1>
+  <h2>My Love Vi</h2>
 
-Today is all about you love.<br>
+  <p class="subtitle">
+    Today is all about you love.<br>
+    Click your gift to begin your surprise.
+  </p>
 
-Click your gift to begin your surprise.
+  <div id="giftBox" class="gift-box">
+    <div class="gift-glow"></div>
+    <div class="wax-seal"><span>V</span></div>
+    <img src="images/gift.png" alt="Gift Box">
+  </div>
 
-</p>
+  <div id="menu" class="menu">
 
-<div id="giftBox" class="gift-box">
+    <a href="scrapbook/index.html" class="card" style="--i:0;">
+      <span class="tape tape-a"></span>
+      <span class="tape tape-b"></span>
+      <img src="images/scrapbook.png">
+      <span>our little scrapbook</span>
+    </a>
 
-<img src="images/gift.png" alt="Gift Box">
+    <a href="pages/music.html" class="card" style="--i:1;">
+      <span class="tape tape-a"></span>
+      <span class="tape tape-b"></span>
+      <img src="images/music.png">
+      <span>our song, just for you</span>
+    </a>
 
+    <a href="Flower-main/index.html" class="card" style="--i:2;">
+      <span class="tape tape-a"></span>
+      <span class="tape tape-b"></span>
+      <img src="images/flowers.png">
+      <span>flowers that never wilt</span>
+    </a>
+
+    <a href="pages/letter.html" class="card" style="--i:3;">
+      <span class="tape tape-a"></span>
+      <span class="tape tape-b"></span>
+      <img src="images/letter.png">
+      <span>a letter from my heart</span>
+    </a>
+
+  </div>
+
+  <!-- film strip divider -->
+  <div class="film-strip"></div>
 
 </div>
 
-<div id="menu" class="menu">
-
-<a href="scrapbook/index.html" class="card">
-
-<img src="images/scrapbook.png">
-
-
-
-</a>
-
-<a href="pages/music.html" class="card">
-
-<img src="images/music.png">
-
-
-
-</a>
-
-<a href="Flower-main/index.html" class="card">
-
-    <img src="images/flowers.png">
-
-   
-
-</a>
-
-<a href="pages/letter.html" class="card">
-
-<img src="images/letter.png">
-
-
-
-</a>
-
-</div>
-
-</div>
+<!-- reusable SVG flourish symbol -->
+<svg width="0" height="0" style="position:absolute">
+  <symbol id="flourish" viewBox="0 0 120 120">
+    <path d="M10 60 C10 30 30 10 60 10" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+    <circle cx="60" cy="10" r="5" fill="currentColor" opacity="0.6"/>
+    <path d="M18 55 C18 40 30 28 45 28" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" opacity="0.6"/>
+    <circle cx="20" cy="60" r="3.5" fill="currentColor" opacity="0.5"/>
+    <path d="M60 10 q10 8 4 18 q-10 4 -14 -6 q0 -10 10 -12z" fill="currentColor" opacity="0.35"/>
+  </symbol>
+</svg>
 
 <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
-
 <script src="js/script.js"></script>
 
 </body>
